@@ -30,6 +30,10 @@ try {
 Rethink._connection = connection;
 
 Rethink.Table = function (name, options) {
+  if (!(this instanceof Rethink.Table)) {
+    return new Rethink.Table(name, options);
+  }
+
   var self = this;
   options = options || {};
 

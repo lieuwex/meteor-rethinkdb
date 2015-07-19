@@ -18,6 +18,10 @@ var readMethods = [
 var tableDeps = {};
 
 Rethink.Table = function (name, options) {
+  if (!(this instanceof Rethink.Table)) {
+    return new Rethink.Table(name, options);
+  }
+
   options = options || {};
 
   // Allow anonymous collections, but still give them some identifier
